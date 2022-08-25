@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 100vh;
+            }
+
+            .card {
+                width: 400px;
+            }
+
+            .card-content {
+                width: 400px;
+                height: 400px;
+                transform-style: preserve-3d;
+                transition: 2s;
+                position: relative;
+            }
+
+            .card:hover .card-content {
+                transform: rotateY(180deg);
+            }
+
+            .card-front,
+            .card-back {
+                position: absolute;
+                inset: 0;
+                height: 400px;
+                width: 400px;
+                padding: 30px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transform-style: preserve-3d;
+                backface-visibility: hidden;
+            }
+
+            .card-front {
+                position: relative;
+                background-color: #cab0ef91;
+                background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/308367/fair.jpg');
+                background-size: cover;
+                background-blend-mode: overlay;
+            }
+
+            .card-front::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                border: 3px solid black;
+                margin: 30px;
+                transform: translateZ(75px);
+            }
+
+            h3 {
+                font-size: 45px;
+                letter-spacing: 1px;
+                font-weight: 700;
+                margin: 0;
+                transform: translateZ(125px);
+            }
+
+            .card-front p {
+                text-transform: uppercase;
+                font-size: 20px;
+                font-weight: 600;
+                transform: translateZ(100px);
+            }
+
+            .card-back {
+                transform: rotateY(180deg);
+                background-color: #333;
+                color: #bababa;
+            }
+
+            .card-back p {
+                font-size: 20px;
+                letter-spacing: 0.8px;
+                text-align: center;
+                transform: translateZ(100px);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="card">
+                <div class="card-content">
+                    <div class="card-front">
+                        <p>Time For Some Fun</p>
+                        <h3>THE FAIR</h3>
+                    </div>
+                    <div class="card-back">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis aliquid dolore accusantium, voluptatem aut ea perferendis eveniet doloribus quaerat consequatur.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
